@@ -1,0 +1,174 @@
+/* ─── RESET ─────────────────────────────────────────────────── */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;           /* no scrollbars — canvas fills viewport */
+  background: #0d0d1a;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* ─── GARAGE UI OVERLAY ─────────────────────────────────────── */
+/*
+  This sits on top of the Three.js canvas.
+  Three.js canvas is position: static in the DOM flow,
+  but we use position: fixed to float this UI above it.
+*/
+#garage-ui {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;       /* lets OrbitControls receive mouse events through it */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 40px;
+  gap: 0;
+}
+
+/* ─── TITLE ─────────────────────────────────────────────────── */
+#garage-title {
+  pointer-events: none;
+  margin-bottom: 32px;
+}
+
+#garage-title h1 {
+  font-size: 48px;
+  font-weight: 900;
+  color: #ffffff;
+  letter-spacing: 8px;
+  text-shadow: 0 0 30px rgba(99, 179, 237, 0.6);
+  line-height: 1;
+}
+
+#garage-title p {
+  color: #94a3b8;
+  font-size: 13px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+
+/* ─── CONTROLS PANEL ────────────────────────────────────────── */
+#garage-controls {
+  pointer-events: all;        /* re-enable pointer events just for controls */
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  background: rgba(10, 10, 30, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  padding: 28px;
+  min-width: 280px;
+}
+
+/* ─── SECTION ───────────────────────────────────────────────── */
+.ui-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.section-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #64748b;
+}
+
+/* ─── BUTTON ROW ────────────────────────────────────────────── */
+.btn-row {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* ─── UI BUTTONS ────────────────────────────────────────────── */
+.ui-btn {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  color: #cbd5e1;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.ui-btn:hover {
+  background: rgba(255,255,255,0.1);
+  color: #ffffff;
+  border-color: rgba(255,255,255,0.2);
+}
+
+.ui-btn.active {
+  background: rgba(99, 179, 237, 0.2);
+  border-color: #63b3ed;
+  color: #63b3ed;
+}
+
+/* ─── COLOR SWATCHES ────────────────────────────────────────── */
+.color-swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
+.color-swatch.active {
+  border-color: #ffffff;
+  transform: scale(1.2);
+  box-shadow: 0 0 10px rgba(255,255,255,0.4);
+}
+
+/* ─── RACE BUTTON ───────────────────────────────────────────── */
+#race-btn {
+  pointer-events: all;
+  background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 8px;
+  width: 100%;
+}
+
+#race-btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(99, 130, 246, 0.5);
+}
+
+/* ─── LOADING HINT ──────────────────────────────────────────── */
+#loading-hint {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  color: #475569;
+  font-size: 12px;
+  letter-spacing: 1px;
+  pointer-events: none;
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Racer</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+
+    <!-- 
+      Garage UI overlay — sits on top of the Three.js canvas.
+      Three.js appends its <canvas> to document.body via JS.
+      This div floats above it using CSS position: fixed.
+    -->
+    <div id="garage-ui">
+      <div id="garage-title">
+        <h1>GARAGE</h1>
+        <p>Build your ride before the race</p>
+      </div>
+      <!-- All buttons/swatches are injected here by garage.js -->
+      <div id="garage-controls"></div>
+    </div>
+<script async src="https://unpkg.com/es-module-shims@1.6.3/dist/es-module-shims.js"></script>
+
+<script type="importmap">
+  {
+    "imports": {
+      "three": "https://unpkg.com/three@0.150.1/build/three.module.js",
+      "three/addons/": "https://unpkg.com/three@0.150.1/examples/jsm/"
+    }
+  }
+</script>
+    <script type="module" src="./src/main.js"></script>
+    <script type="module" src="./src/garage.js"></script>
+  </body>
+</html>
