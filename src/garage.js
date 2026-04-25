@@ -193,7 +193,7 @@ dracoLoader.setDecoderPath('https://www.gstatic.com/draco/versioned/decoders/1.5
   loader.setDRACOLoader(dracoLoader)
 
   loader.load(
-    '../public/assets/circle_garage.glb',
+    './assets/circle_garage.glb',
     (gltf) => {
       // gltf.scene = a THREE.Group containing all meshes of the model
       const garageModel = gltf.scene
