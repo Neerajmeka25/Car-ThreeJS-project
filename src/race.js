@@ -718,7 +718,7 @@ window.addEventListener('keyup', (e) => {
   `
  
 
-  const hint = document.createElement('div')
+  let hint = document.createElement('div')
   hint.style.cssText = `
     position: fixed; bottom: 20px; left: 50%;
     transform: translateX(-50%);
